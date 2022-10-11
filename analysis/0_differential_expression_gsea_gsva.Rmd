@@ -23,13 +23,18 @@ options(stringsAsFactors = FALSE)
 
 Load packages
 ```{r load-libraries}
-library(tidyverse)
-library(scater)
-library(scran)
-library(edgeR)
-library(clusterProfiler)
-library(GSVA)
-library(foreach)
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+if (!require("pacman", quietly = TRUE))
+  install.packages("pacman")
+BiocManager::install(c("scater", "scran", "edgeR", "GSVA", "clusterProfiler"))
+pacman::p_load("tidyverse",
+               "scater",
+               "scran",
+               "edgeR",
+               "clusterProfiler",
+               "GSVA",
+               "foreach")
 ```
 
 Load shared variables
